@@ -1,8 +1,9 @@
 // Include packages needed for this application
-const fs= require('fs');
 const inquirer = require('inquirer');
-const markdown = require('./utils/generateMarkdown.js');
+const fs = require('fs');
+const util = require('util');
 const link = ('./utils/link.js')
+const markdown = require('./utils/generateMarkdown.js');
 
 // Create an array of questions for user input
 const questions = [
@@ -48,16 +49,13 @@ const questions = [
        type: 'list',
        name: 'license',
        message: 'What license did you use for the project:',
-       choises: [
+       choices: [
            'Apache',
            'Boost',
-           'CC0',
            'Eclipse',
            'IBM',
            'MIT',
            'Mozilla',
-           'SIL',
-           'Unlicense'
        ]
    },
    {
@@ -68,7 +66,7 @@ const questions = [
            if (nameInput) {
            return true;
            } else {
-           console.log('Please enter your name!');
+           console.log('Please enter your Username!');
            return false;
            }
        }
