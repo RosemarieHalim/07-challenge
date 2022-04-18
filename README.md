@@ -26,24 +26,32 @@ THEN I am taken to the corresponding section of the README
 
 ---
 
-# My Portfolio
+# Challenge 07
+![GIF](dist/recording.gif)
+
 
 ## Purpose
 Quickly and easily generate a README file by using a command-line application to generate one. Allowing the project creator to devote more time working on the project.
 
 ## Built With
-* HTML
-* CSS
 * Javascript
 * Node.js
+* inquirer.js
+* axios.js
 
 ## Website
 https://rosemariehalim.github.io/07-challenge/
 
 ---
 
-## Challenge 7.0
+## Process
 
 * planned out code
-* added core code
-* 
+* installed axios and inquirer
+* created required command-line questions
+* created functions to write README file
+* wrote function to initialize application
+* created link.js for function to link GitHub API
+* added functions for license badge and link
+* completed function to generate markdown
+* tested and fixed code

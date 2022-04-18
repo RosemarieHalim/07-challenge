@@ -2,7 +2,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const util = require('util');
-const link = ('./utils/link.js')
+const link = require('./utils/link.js');
 const markdown = require('./utils/generateMarkdown.js');
 
 // Create an array of questions for user input
@@ -60,7 +60,7 @@ const questions = [
    },
    {
        type: 'input',
-       name: 'Username',
+       name: 'username',
        message: 'What is your GitHub Username? (Required)',
        validate: nameInput => {
            if (nameInput) {
@@ -100,11 +100,11 @@ function writeToFile(fileName, data) {
 const writeFileAsync = util.promisify(writeToFile);
 
 // Create a function to initialize app
-function init() {
+async function init() {
     try {
         const userResponses = await inquirer.prompt(questions);
         console.log('Your answers: ', userResponses);
-        console.log('Fetching GitHub data...')
+        console.log('Fetching GitHub data...');
 
         const userInfo = await link.getUser(userResponses);
         console.log('GitHub user info: ', userInfo);
@@ -112,7 +112,7 @@ function init() {
         console.log('Generating README.md...');
         const md = markdown(userResponses, userInfo);
 
-        await writeFileAsync('ExampleREADME.md', md);
+        await writeFileAsync('./dist/README.md', md);
     } catch (err) {
         console.log(err);
     }
